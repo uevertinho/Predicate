@@ -20,7 +20,7 @@ public class Program {
         // method reference:
         // colocamos o nome da classe onde o metodo está '::' e aí nome do metodo
         // isso aqui também é aceito no sistema lambda do java
-        list.removeIf(Product::staticProductPredicate);
+        list.removeIf(Product::nonstaticProductPredicate);
 
         for (Product p : list){
             System.out.println(p);

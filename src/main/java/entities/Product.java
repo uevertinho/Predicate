@@ -25,8 +25,15 @@ public class Product {
         this.price = price;
     }
 
+    //metodo estático trabalha com o produto que passarmos como argumento para ele
     public static boolean staticProductPredicate(Product p){
         return p.getPrice() >= 100.0;
+    }
+
+    //metodo não estático é um metodo da instância
+    //trabalha com o próprio objeto que estou
+    public boolean nonstaticProductPredicate(){
+        return price >= 100.0;
     }
 
     @Override
