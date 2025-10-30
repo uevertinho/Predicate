@@ -17,7 +17,10 @@ public class Program {
         list.add(new Product("Tablet", 350.50));
         list.add(new Product("HD Case", 80.90));
 
-        list.removeIf(new ProductPredicate());
+        // method reference:
+        // colocamos o nome da classe onde o metodo está '::' e aí nome do metodo
+        // isso aqui também é aceito no sistema lambda do java
+        list.removeIf(Product::staticProductPredicate);
 
         for (Product p : list){
             System.out.println(p);
