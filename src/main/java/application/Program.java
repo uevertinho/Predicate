@@ -1,13 +1,11 @@
 package application;
 
 import entities.Product;
-import util.ProductPredicate;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.function.Predicate;
 
 public class Program {
     public static void main(String[] args) {
@@ -20,13 +18,14 @@ public class Program {
         list.add(new Product("Tablet", 350.50));
         list.add(new Product("HD Case", 80.90));
 
-        //desse jeito é legal porque podemos pegar valor de variáveis
-        //e parametrizarmos esse valor.
-        //inclusive as que o usuário digitar e parametrizar na expressão
-        double min = sc.nextDouble();
-        Predicate<Product> pred = p -> p.getPrice() >= min;
 
-        list.removeIf(pred);
+        double min = sc.nextDouble();
+
+        // em vez de declarar o predicado e usar a variável dela
+        // pegamos a expressão lambda e colocamos como argumento
+        // do removeIf
+        // expressão lambda inline
+        list.removeIf(p -> p.getPrice() >= min);
 
         for (Product p : list){
             System.out.println(p);
